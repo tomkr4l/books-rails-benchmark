@@ -1,0 +1,24 @@
+en:
+  activerecord:
+    attributes:
+      author:
+        name: "Name"
+        birth: Date of Birth
+        death: Date of Death
+        books_count: "Number of Books"
+      book:
+        title: Title
+        year_published: Publication year
+        price: Price
+        isbn: ISBN
+    models:
+      author:
+        one: Author
+        few: Authors
+        other: Authors
+      book:
+        one: Book
+        few: Books
+        other: Books
+    errors:
+      models:

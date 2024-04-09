@@ -1,16 +1,19 @@
-Authors
+<%= content_for :title, Author.model_name.human(count: 2) %>
 
 <table class="w-full text-sm text-left rtl:text-right confirm_removetext-gray-500 dark:text-gray-400 shadow">
   <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
     <tr>
       <th scope="col" class="px-6 py-3">
-        <%= Author.human_attribute_name(:name) %>
+        <%= sort_link @q, :name, Author.human_attribute_name(:name) %>
       </th>
       <th scope="col" class="px-6 py-3">
-        <%= Author.human_attribute_name(:birth) %>
+        <%= sort_link @q, :birth, Author.human_attribute_name(:birth) %>
       </th>
       <th scope="col" class="px-6 py-3">
-        <%= Author.human_attribute_name(:death) %>
+        <%= sort_link @q, :death, Author.human_attribute_name(:death) %>
+      </th>
+      <th scope="col" class="px-6 py-3">
+        <%= sort_link @q, :books_count, Author.human_attribute_name(:books_count) %>
       </th>
       <th scope="col" class="px-6 py-3">
         <%= t("action") %>
@@ -32,6 +35,6 @@ Authors
   <% end %>
 
 </table>
-<div class="text-center mt-4">
+<div class="flex justify-center mt-4">
   <%== pagy_nav(@pagy) %>
 </div>

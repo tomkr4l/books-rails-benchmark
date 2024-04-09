@@ -1,1 +1,56 @@
-Books
+<%= content_for :title, Book.model_name.human(count: 2) %>
+
+<table
+  class="
+    w-full text-sm text-left rtl:text-right confirm_removetext-gray-500
+    dark:text-gray-400 shadow
+  "
+>
+  <thead
+    class="
+      text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400
+    "
+  >
+    <tr>
+      <th scope="col" class="px-6 py-3">
+        <%= sort_link @q, :title, Book.human_attribute_name(:title) %>
+      </th>
+      <th scope="col" class="px-6 py-3">
+        <%= sort_link @q, :isbn, Book.human_attribute_name(:isbn) %>
+      </th>
+      <th scope="col" class="px-6 py-3">
+        <%= sort_link @q, :year_published, Book.human_attribute_name(:year_published) %>
+      </th>
+      <th scope="col" class="px-6 py-3">
+        <%= sort_link @q, :price, Book.human_attribute_name(:price) %>
+      </th>
+      <th scope="col" class="px-6 py-3">
+        <%= Author.model_name.human %>
+      </th>
+      <th scope="col" class="px-6 py-3">
+        <%= sort_link @q, :available, Book.human_attribute_name(:available) %>
+      </th>
+
+      <th scope="col" class="px-6 py-3">
+        <%= t("action") %>
+      </th>
+    </tr>
+  </thead>
+  <tbody id='table'>
+    <%= render @books %>
+  </tbody>
+
+  <% if @books.blank? %>
+    <tfoot>
+      <tr>
+        <td colspan="99" class="px-6 py-4 whitespace-nowrap dark:text-white">
+          <em><%= t("not_found_result") %></em>
+        </td>
+      </tr>
+    </tfoot>
+  <% end %>
+
+</table>
+<div class="flex justify-center mt-4">
+  <%== pagy_nav(@pagy) %>
+</div>

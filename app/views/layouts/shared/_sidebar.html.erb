@@ -11,14 +11,14 @@
     <ul class="space-y-2 font-medium">
       <li>
         <%= link_to [:authors], class: 'flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group' do %>
-          <%= hicon "users" %>
+          <%= hicon "users", options: { class: 'w-5 h-5 text-gray-500' } %>
           <span class="flex-1 ms-3 whitespace-nowrap">Authors</span>
         <% end %>
       </li>
 
       <li>
         <%= link_to [:books], class: 'flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group' do %>
-          <%= hicon "book-open" %>
+          <%= hicon "book-open", options: { class: 'w-5 h-5 text-gray-500' } %>
           <span class="flex-1 ms-3 whitespace-nowrap">Books</span>
         <% end %>
       </li>

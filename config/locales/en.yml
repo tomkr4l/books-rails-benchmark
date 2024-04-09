@@ -30,3 +30,9 @@
 en:
   hello: "Hello world"
   app_name: Rails books
+  confirm: "Are you sure?"
+  edit: Edit
+  destroy: Delete
+  show: Show
+  new: New
+  back: Back

@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   def index
-    @q = Book.ransack(params[:q])
+    @q = Book.includes(:author).ransack(params[:q])
     @q.sorts = 'id DESC' if @q.sorts.empty?
     @pagy, @books = pagy(@q.result)
   end
