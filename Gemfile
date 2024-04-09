@@ -46,6 +46,7 @@ gem "bootsnap", require: false
 gem "pagy"
 gem "ransack"
 gem 'heroicon'
+gem 'solid_queue'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
