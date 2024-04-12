@@ -1,0 +1,9 @@
+<%= simple_form_for [author] do |f| %>
+  <%= f.input :name, as: :string, input_html: { autocomplete: "off" } %>
+  <%= f.input :birth, as: :date, html5: true, input_html: { autocomplete: "off" } %>
+  <%= f.input :death, as: :date, html5: true, input_html: { autocomplete: "off" } %>
+
+  <%= f.button :button, data: { turbo_submits_with: 'Saving...'}, class: "mt-4 inline-flex items-center" do %>
+    Save
+  <% end %>
+<% end %>
