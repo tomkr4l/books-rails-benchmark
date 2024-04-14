@@ -6,6 +6,8 @@ class Book < ApplicationRecord
   validates :price, numericality: { greater_than_or_equal_to: 0 }
   validates_uniqueness_of :title, scope: :author_id
 
+  broadcasts_to ->(book) { 'books' }, inserts_by: :prepend, target: 'books_body', partial: 'books/book'
+
   def to_s
     title
   end

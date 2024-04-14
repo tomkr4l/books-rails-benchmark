@@ -28,54 +28,58 @@
 
 <span class="hidden text-red-500"></span>
 
+<%= turbo_stream_from "authors" %>
+
 <%= turbo_frame_tag controller_name, data: { turbo_action: 'advance' } do %>
-  <table
-    class="
-      w-full text-sm text-left rtl:text-right confirm_removetext-gray-500
-      dark:text-gray-400 shadow
-    "
-  >
-    <thead
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table
       class="
-        text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400
+        w-full text-sm text-left rtl:text-right confirm_removetext-gray-500
+        dark:text-gray-400 shadow
       "
     >
-      <tr>
-        <th scope="col" class="px-6 py-3">
-          <%= sort_link @q, :id, Author.human_attribute_name(:id) %>
-        </th>
-        <th scope="col" class="px-6 py-3">
-          <%= sort_link @q, :name, Author.human_attribute_name(:name) %>
-        </th>
-        <th scope="col" class="px-6 py-3">
-          <%= sort_link @q, :birth, Author.human_attribute_name(:birth) %>
-        </th>
-        <th scope="col" class="px-6 py-3">
-          <%= sort_link @q, :death, Author.human_attribute_name(:death) %>
-        </th>
-        <th scope="col" class="px-6 py-3">
-          <%= sort_link @q, :books_count, Author.human_attribute_name(:books_count) %>
-        </th>
-        <th scope="col" class="px-6 py-3">
-          <%= t("action") %>
-        </th>
-      </tr>
-    </thead>
-    <tbody id='authors_body'>
-      <%= render @authors %>
-    </tbody>
-
-    <% if @authors.blank? %>
-      <tfoot>
+      <thead
+        class="
+          text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400
+        "
+      >
         <tr>
-          <td colspan="99" class="px-6 py-4 whitespace-nowrap dark:text-white">
-            <em><%= t("not_found_result") %></em>
-          </td>
+          <th scope="col" class="px-6 py-3">
+            <%= sort_link @q, :id, Author.human_attribute_name(:id) %>
+          </th>
+          <th scope="col" class="px-6 py-3">
+            <%= sort_link @q, :name, Author.human_attribute_name(:name) %>
+          </th>
+          <th scope="col" class="px-6 py-3">
+            <%= sort_link @q, :birth, Author.human_attribute_name(:birth) %>
+          </th>
+          <th scope="col" class="px-6 py-3">
+            <%= sort_link @q, :death, Author.human_attribute_name(:death) %>
+          </th>
+          <th scope="col" class="px-6 py-3">
+            <%= sort_link @q, :books_count, Author.human_attribute_name(:books_count) %>
+          </th>
+          <th scope="col" class="px-6 py-3">
+            <%= t("action") %>
+          </th>
         </tr>
-      </tfoot>
-    <% end %>
+      </thead>
+      <tbody id='authors_body'>
+        <%= render @authors %>
+      </tbody>
 
-  </table>
+      <% if @authors.blank? %>
+        <tfoot>
+          <tr>
+            <td colspan="99" class="px-6 py-4 whitespace-nowrap dark:text-white">
+              <em><%= t("not_found_result") %></em>
+            </td>
+          </tr>
+        </tfoot>
+      <% end %>
+
+    </table>
+  </div>
   <div class="flex justify-center mt-4">
     <%== pagy_nav(@pagy) %>
   </div>

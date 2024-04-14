@@ -5,6 +5,8 @@ class Author < ApplicationRecord
   validates :birth, presence: true, comparison: { less_than: Date.current }
   validates :death, comparison: { greater_than: :birth }, allow_blank: true
 
+  broadcasts_to ->(author) { 'authors' }, inserts_by: :prepend, target: 'authors_body', partial: 'authors/author'
+
   def to_s
     name
   end
