@@ -1,0 +1,16 @@
+<%= content_for :title, "#{t("new")} #{Book.model_name.human}" %>
+
+<%= turbo_frame_tag @book do %>
+  <div
+    class="
+      max-w p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800
+      dark:border-gray-700
+    "
+  >
+    <h2 class="mb-4 text-3xl">
+      <%= "#{t("new")} #{Book.model_name.human}" %>
+    </h2>
+
+    <%= render "form", book: @book %>
+  </div>
+<% end %>
