@@ -1,2 +1,12 @@
 <%= content_for :title, "#{t('new')} #{Author.model_name.human}" %>
-<%= render 'form', author: @author %>
+
+<%= turbo_frame_tag @author do %>
+
+  <div class="max-w p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <h2 class="mb-4 text-3xl">
+      <%= "#{t('new')} #{Author.model_name.human}" %>
+    </h2>
+
+    <%= render 'form', author: @author %>
+  </div>
+<% end %>

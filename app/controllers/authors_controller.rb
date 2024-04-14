@@ -45,9 +45,7 @@ class AuthorsController < ApplicationController
       flash[:notice] = 'Author deleted successfully'
 
       format.html { redirect_to authors_path }
-      format.turbo_stream do
-        render turbo_stream: turbo_stream.remove(author)
-      end
+      format.turbo_stream
     end
   end
 

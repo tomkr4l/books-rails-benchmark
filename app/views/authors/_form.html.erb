@@ -1,9 +1,24 @@
 <%= simple_form_for [author] do |f| %>
-  <%= f.input :name, as: :string, input_html: { autocomplete: "off" } %>
-  <%= f.input :birth, as: :date, html5: true, input_html: { autocomplete: "off" } %>
-  <%= f.input :death, as: :date, html5: true, input_html: { autocomplete: "off" } %>
+  <div class="flex space-x-5">
+    <div class="flex-1">
+      <%= f.input :name, as: :string, input_html: { autocomplete: "off" } %>
+    </div>
+    <div class="flex-1">
+      <%= f.input :birth, as: :date, html5: true, input_html: { autocomplete: "off" } %>
+    </div>
 
-  <%= f.button :button, data: { turbo_submits_with: 'Saving...'}, class: "mt-4 inline-flex items-center" do %>
-    Save
-  <% end %>
+    <div class="flex-1">
+      <%= f.input :death, as: :date, html5: true, input_html: { autocomplete: "off" } %>
+    </div>
+
+    <div class="flex-1 flex">
+      <div class="flex items-center">
+        <%= f.button :button, data: { turbo_submits_with: 'Saving...'} do %>
+          Save
+        <% end %>
+
+        <%= link_to 'Cancel', '', class: 'ms-2 text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700' %>
+      </div>
+    </div>
+  </div>
 <% end %>
