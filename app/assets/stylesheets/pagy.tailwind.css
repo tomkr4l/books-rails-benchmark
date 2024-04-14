@@ -10,7 +10,7 @@
 
     &:not([href]) {
       /* disabled links */
-      @apply text-gray-300 bg-gray-100 cursor-default;
+      @apply text-gray-300 bg-gray-100;
     }
 
     &.current {

@@ -1,6 +1,9 @@
 <tr
   id="<%= dom_id(author) %>"
-  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+  class="
+    bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50
+    dark:hover:bg-gray-600
+  "
 >
   <td class="px-6 py-4 whitespace-nowrap dark:text-white">
     <%= author.id %>
@@ -14,7 +17,7 @@
   </td>
 
   <td class="px-6 py-4 whitespace-nowrap dark:text-white">
-    <%= author.death.present? ? l(author.death) : '' %>
+    <%= author.death.present? ? l(author.death) : "" %>
   </td>
 
   <td class="px-6 py-4 whitespace-nowrap dark:text-white">
@@ -25,7 +28,9 @@
     <%= link_to hicon("pencil-square"),
     [:edit, author],
     title: t("edit"),
-  data: { turbo_frame: dom_id(Author.new) },
+    data: {
+      turbo_frame: dom_id(Author.new),
+    },
     class: "font-medium text-blue-600 dark:text-blue-500 hover:underline ms-3" %>
 
     <%= link_to hicon("trash"),

@@ -1,62 +1,87 @@
 <%= content_for :title, Book.model_name.human(count: 2) %>
 
-<div class="flex mb-4">
-  <div class="justify-end">
-    <%= link_to "Generate", [:new, :book], data: { turbo_frame: dom_id(Book.new), action: 'dialog#open' }, class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
+<div class="mb-2 mt-2">
+  <%= turbo_frame_tag Book.new %>
+</div>
+
+<div class="relative overflow-x-auto sm:rounded-lg">
+  <div
+    class="
+      flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center
+      justify-between pb-4
+    "
+  >
+    <div class="bg-white dark:bg-gray-800">
+      <div class="relative mt-1">
+        <%= render "books/filter" %>
+      </div>
+    </div>
+
+    <%= link_to [:new, :book], data: { turbo_frame: dom_id(Book.new) }, class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" do %>
+      <span class="flex">
+        <%= hicon "plus-circle" %>
+        <span class="ms-1">Add Book</span>
+      </span>
+    <% end %>
   </div>
 </div>
 
-<table
-  class="
-    w-full text-sm text-left rtl:text-right confirm_removetext-gray-500
-    dark:text-gray-400 shadow
-  "
->
-  <thead
+<%= turbo_frame_tag controller_name, data: { turbo_action: 'advance' } do %>
+  <table
     class="
-      text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400
+      w-full text-sm text-left rtl:text-right confirm_removetext-gray-500
+      dark:text-gray-400 shadow
     "
   >
-    <tr>
-      <th scope="col" class="px-6 py-3">
-        <%= sort_link @q, :title, Book.human_attribute_name(:title) %>
-      </th>
-      <th scope="col" class="px-6 py-3">
-        <%= sort_link @q, :isbn, Book.human_attribute_name(:isbn) %>
-      </th>
-      <th scope="col" class="px-6 py-3">
-        <%= sort_link @q, :year_published, Book.human_attribute_name(:year_published) %>
-      </th>
-      <th scope="col" class="px-6 py-3">
-        <%= sort_link @q, :price, Book.human_attribute_name(:price) %>
-      </th>
-      <th scope="col" class="px-6 py-3">
-        <%= Author.model_name.human %>
-      </th>
-      <th scope="col" class="px-6 py-3">
-        <%= sort_link @q, :available, Book.human_attribute_name(:available) %>
-      </th>
-
-      <th scope="col" class="px-6 py-3">
-        <%= t("action") %>
-      </th>
-    </tr>
-  </thead>
-  <tbody id='table'>
-    <%= render @books %>
-  </tbody>
-
-  <% if @books.blank? %>
-    <tfoot>
+    <thead
+      class="
+        text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400
+      "
+    >
       <tr>
-        <td colspan="99" class="px-6 py-4 whitespace-nowrap dark:text-white">
-          <em><%= t("not_found_result") %></em>
-        </td>
-      </tr>
-    </tfoot>
-  <% end %>
+        <th scope="col" class="px-6 py-3">
+          <%= sort_link @q, :id, Book.human_attribute_name(:id) %>
+        </th>
+        <th scope="col" class="px-6 py-3">
+          <%= sort_link @q, :title, Book.human_attribute_name(:title) %>
+        </th>
+        <th scope="col" class="px-6 py-3">
+          <%= sort_link @q, :isbn, Book.human_attribute_name(:isbn) %>
+        </th>
+        <th scope="col" class="px-6 py-3">
+          <%= sort_link @q, :year_published, Book.human_attribute_name(:year_published) %>
+        </th>
+        <th scope="col" class="px-6 py-3">
+          <%= sort_link @q, :price, Book.human_attribute_name(:price) %>
+        </th>
+        <th scope="col" class="px-6 py-3">
+          <%= Author.model_name.human %>
+        </th>
+        <th scope="col" class="px-6 py-3">
+          <%= sort_link @q, :available, Book.human_attribute_name(:available) %>
+        </th>
 
-</table>
-<div class="flex justify-center mt-4">
-  <%== pagy_nav(@pagy) %>
-</div>
+        <th scope="col" class="px-6 py-3">
+          <%= t("action") %>
+        </th>
+      </tr>
+    </thead>
+    <tbody id='table'>
+      <%= render @books %>
+    </tbody>
+
+    <% if @books.blank? %>
+      <tfoot>
+        <tr>
+          <td colspan="99" class="px-6 py-4 whitespace-nowrap dark:text-white">
+            <em><%= t("not_found_result") %></em>
+          </td>
+        </tr>
+      </tfoot>
+    <% end %>
+
+  </table>
+  <div class="flex justify-center mt-4">
+    <%== pagy_nav(@pagy) %>
+  </div>
+<% end %>

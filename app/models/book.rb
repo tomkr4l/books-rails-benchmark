@@ -9,4 +9,12 @@ class Book < ApplicationRecord
   def to_s
     title
   end
+
+  ransacker :id_text do
+    Arel.sql('books.id::text')
+  end
+
+  ransacker :year_published_text do
+    Arel.sql('books.year_published::text')
+  end
 end

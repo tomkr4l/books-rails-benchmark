@@ -4,17 +4,22 @@
   <%= turbo_frame_tag Author.new %>
 </div>
 
-<div class="relative overflow-x-auto sm:rounded-lg" data-controller="dialog" data-action="click->dialog#backdropClose">
-  <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
+<div class="relative overflow-x-auto sm:rounded-lg">
+  <div
+    class="
+      flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center
+      justify-between pb-4
+    "
+  >
     <div class="bg-white dark:bg-gray-800">
       <div class="relative mt-1">
-        <%= render 'authors/filter' %>
+        <%= render "authors/filter" %>
       </div>
     </div>
 
     <%= link_to [:new, :author], data: { turbo_frame: dom_id(Author.new) }, class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" do %>
       <span class="flex">
-        <%= hicon 'plus-circle' %>
+        <%= hicon "plus-circle" %>
         <span class="ms-1">New Author</span>
       </span>
     <% end %>
@@ -24,8 +29,17 @@
 <span class="hidden text-red-500"></span>
 
 <%= turbo_frame_tag controller_name, data: { turbo_action: 'advance' } do %>
-  <table class="w-full text-sm text-left rtl:text-right confirm_removetext-gray-500 dark:text-gray-400 shadow">
-    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+  <table
+    class="
+      w-full text-sm text-left rtl:text-right confirm_removetext-gray-500
+      dark:text-gray-400 shadow
+    "
+  >
+    <thead
+      class="
+        text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400
+      "
+    >
       <tr>
         <th scope="col" class="px-6 py-3">
           <%= sort_link @q, :id, Author.human_attribute_name(:id) %>

@@ -1,7 +1,13 @@
 <tr
   id="<%= dom_id(book) %>"
-  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+  class="
+    bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50
+    dark:hover:bg-gray-600
+  "
 >
+  <td class="px-6 py-4 whitespace-nowrap dark:text-white">
+    <%= book.id %>
+  </td>
   <td class="px-6 py-4 whitespace-nowrap dark:text-white">
     <%= book.title %>
   </td>
@@ -19,7 +25,7 @@
   </td>
 
   <td class="px-6 py-4 whitespace-nowrap dark:text-white">
-    <%= book.author %>
+    <%= link_to book.author, [:authors, q: { name_or_id_text_cont: book.author_id }] %>
   </td>
 
   <td class="px-6 py-4 whitespace-nowrap dark:text-white">
@@ -30,7 +36,9 @@
     <%= link_to hicon("pencil-square"),
     [:edit, book],
     title: t("edit"),
-    data: { turbo_frame: dom_id(Book.new) },
+    data: {
+      turbo_frame: dom_id(Book.new),
+    },
     class: "font-medium text-blue-600 dark:text-blue-500 hover:underline ms-3" %>
 
     <%= link_to hicon("trash"),

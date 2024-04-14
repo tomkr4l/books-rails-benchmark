@@ -38,7 +38,7 @@ SimpleForm.setup do |config|
   # vertical forms
   #
   # vertical default_wrapper
-  config.wrappers :vertical_form, tag: 'div', class: 'mb-4' do |b|
+  config.wrappers :vertical_form, tag: 'div', class: '' do |b|
     b.use :html5
     b.use :placeholder
     b.optional :maxlength
@@ -53,7 +53,7 @@ SimpleForm.setup do |config|
   end
 
   # vertical input for boolean (aka checkboxes)
-  config.wrappers :vertical_boolean, tag: 'div', class: 'mb-4 flex items-start', error_class: '' do |b|
+  config.wrappers :vertical_boolean, tag: 'div', class: 'flex items-start', error_class: '' do |b|
     b.use :html5
     b.optional :readonly
     b.wrapper tag: 'div', class: 'flex items-center h-5' do |ba|
