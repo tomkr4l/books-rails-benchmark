@@ -25,7 +25,7 @@
     <%= link_to hicon("pencil-square"),
     [:edit, author],
     title: t("edit"),
-    data: { turbo_frame: dom_id(Author.new) },
+  data: { turbo_frame: dom_id(Author.new) },
     class: "font-medium text-blue-600 dark:text-blue-500 hover:underline ms-3" %>
 
     <%= link_to hicon("trash"),

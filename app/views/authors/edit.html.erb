@@ -1,1 +1,12 @@
-<%=
+<%= content_for :title, "#{t('edit')} #{@author}" %>
+
+<%= turbo_frame_tag Author.new do %>
+
+  <div class="max-w p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <h2 class="mb-4 text-3xl">
+      <%= "#{t('edit')} #{@author}" %>
+    </h2>
+
+    <%= render 'form', author: @author %>
+  </div>
+<% end %>
