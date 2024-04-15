@@ -3,3 +3,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+::view-transition-old(counter) {
+  animation-duration: 200ms;
+  animation-name: -ua-view-transition-fade-out, rotate-out;
+}
+
+::view-transition-new(counter) {
+  animation-duration: 200ms;
+  animation-name: -ua-view-transition-fade-in, rotate-in;
+}
