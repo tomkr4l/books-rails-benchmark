@@ -7,3 +7,6 @@ Generated with command
 For socket updates you have to run
 
 `bundle exec rake solid_queue:start`
+
+Ruby version: 3.3.0
+Rails 7.1.3
