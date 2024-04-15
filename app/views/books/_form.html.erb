@@ -8,7 +8,12 @@
     </div>
 
     <div class="flex-1">
-      <%= f.input :year_published, collection: (1..Date.current.year).to_a.reverse, input_html: { autocomplete: "off" }, prompt: false %>
+      <%= f.input :year_published,
+              collection: (1..Date.current.year).to_a.reverse,
+              input_html: {
+                autocomplete: "off",
+              },
+              prompt: false %>
     </div>
 
     <div class="flex-1">
@@ -16,7 +21,11 @@
     </div>
 
     <div class="flex-1">
-      <%= f.input :author_id, collection: Author.order(:name), input_html: { autocomplete: "off" } %>
+      <%= f.input :author_id,
+              collection: Author.order(:name),
+              input_html: {
+                autocomplete: "off",
+              } %>
     </div>
 
     <div class="flex-1 mt-5">

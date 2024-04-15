@@ -20,7 +20,12 @@
 
   <body>
     <%= render "layouts/shared/header" %>
+
     <div class="p-4 sm:ml-64">
+      <%= turbo_frame_tag 'flash' do %>
+        <%= render "layouts/shared/flash" %>
+      <% end %>
+
       <div
         class="
           p-4 border-2 border-white-200 border-dashed rounded-lg dark:border-gray-700

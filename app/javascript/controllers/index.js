@@ -9,3 +9,6 @@ application.register('hello', HelloController);
 
 import SearchController from './search_controller';
 application.register('search', SearchController);
+
+import FlashsController from './flashs_controller';
+application.register('flashs', FlashsController);
