@@ -24,6 +24,5 @@ rails db:create db:migrate db:seed
 bin/dev
 ```
 
-
-https://github.com/tomkra/books-rails-benchmark/assets/9742214/a220772a-be3c-406b-8a26-e0f530d1ee50
+<video src="https://github.com/tomkra/books-rails-benchmark/assets/9742214/a220772a-be3c-406b-8a26-e0f530d1ee50"></video>
 
