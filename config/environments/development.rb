@@ -11,6 +11,12 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  config.cache_store = :redis_cache_store, {
+    url: "#{ENV.fetch('REDIS_URL') { 'redis://localhost:6379' }}/3/cache",
+    reconnect_attempts: 1,
+    expires_in: 10.minutes
+  }
+
   # Show full error reports.
   config.consider_all_requests_local = true
 
