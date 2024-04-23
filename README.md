@@ -24,4 +24,5 @@ rails db:create db:migrate db:seed
 bin/dev
 ```
 
-![App video preview](https://drive.google.com/file/d/1d2W6chca_MBPPmzdmBDcxXfvrHkiTctL/view?usp=drive_link)
+<video src="https://github.com/tomkra/books-rails-benchmark/assets/9742214/a220772a-be3c-406b-8a26-e0f530d1ee50"></video>
+
