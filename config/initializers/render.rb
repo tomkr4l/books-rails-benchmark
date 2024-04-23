@@ -1,3 +1,3 @@
-if ENV.fetch('RENDER_DEPLOY', nil).present? && Author.count < 50
+if ENV.fetch('DB_SEED', nil).to_i == 1
   Rails.application.load_seed
 end
