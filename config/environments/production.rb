@@ -73,6 +73,7 @@ Rails.application.configure do
     expires_in: 10.minutes
   }
 
+
   # Use a real queuing backend for Active Job (and separate queues per environment).
   config.active_job.queue_adapter = :solid_queue
   # config.active_job.queue_name_prefix = "books_rails_benchmark_production"
