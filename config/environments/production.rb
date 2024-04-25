@@ -68,7 +68,7 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   config.cache_store = :redis_cache_store, {
-    url: "#{ENV.fetch('REDIS_URL') { 'redis://localhost:6379' }}/3/cache",
+    url: "#{ENV.fetch('REDIS_URL') { 'redis://localhost:6379' }}",
     reconnect_attempts: 1,
     expires_in: 10.minutes
   }
